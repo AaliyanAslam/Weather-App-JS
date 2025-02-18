@@ -9,7 +9,8 @@ form.addEventListener('submit' , (event) => {
 // console.log(cityInput.input);
  
  
-   axios(`http://api.weatherapi.com/v1/current.json?key=b4db485d7c4c485fa6d84351232508&q=${cityInput.value}&aqi=no`)
+   fetch(`http://api.weatherapi.com/v1/current.json?key=b4db485d7c4c485fa6d84351232508&q=${cityInput.value}&aqi=no`)
+   .then((response => response.json()))
 .then((response) => {
    console.log(response.data);
    // var list = document.createElement('ul');
