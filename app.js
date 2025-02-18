@@ -1,19 +1,16 @@
-const cityInput = document.querySelector('#city-input');
-const form = document.querySelector('#search-form');
-const result = document.getElementById('weather-data');
+const cityInput = document.querySelector("#city-input");
+const form = document.querySelector("#search-form");
+const result = document.getElementById("weather-data");
 
+form.addEventListener("submit", (event) => {
+  event.preventDefault();
 
-
-form.addEventListener('submit' , (event) => {
-   event.preventDefault();
-// console.log(cityInput.input);
- 
- 
-   axios(`https://api.weatherapi.com/v1/current.json?key=b4db485d7c4c485fa6d84351232508&q=${cityInput.value}&aqi=no`)
-.then((response) => {
-   console.log(response.data);
-   // var list = document.createElement('ul');
-   result.innerHTML += `
+  axios(
+    `https://api.weatherapi.com/v1/current.json?key=b4db485d7c4c485fa6d84351232508&q=${cityInput.value}&aqi=no`
+  )
+    .then((response) => {
+      console.log(response.data);
+      result.innerHTML += `
    <span class= "border-div"> 
    <span class = "weather-details text-light"> 
    <span class = "location-name">${response.data.location.name}, ${response.data.location.country}</span>
@@ -34,14 +31,11 @@ form.addEventListener('submit' , (event) => {
    </span>
    
    `;
-   cityInput.value = "";
-
-})
-  .catch((error) => {
-   console.error(error);
-   alert("no city found")
-   cityInput.value = "";
+      cityInput.value = "";
+    })
+    .catch((error) => {
+      console.error(error);
+      alert("no city found");
+      cityInput.value = "";
+    });
 });
-
-})
-
