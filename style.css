@@ -57,14 +57,8 @@
     height: 44vh;
     width: 40vw
 }
-.border-div{
-    /* padding: 1px; */
-    /* background-color: red; */
-/* border: 2px solid rgb(216, 105, 105); */
 
-}
-.main-d{
-}
+
 ul{
     display: flex;
     justify-content: center;
