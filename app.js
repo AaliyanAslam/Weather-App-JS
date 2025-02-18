@@ -17,12 +17,15 @@ form.addEventListener('submit' , (event) => {
    <span class= "border-div"> 
    <span class = "weather-details text-light"> 
    <span class = "location-name">${response.data.location.name}, ${response.data.location.country}</span>
-   <div class = "d-flex justify-content-center align-items-center main-d"> 
+   <div class = "d-flex justify-content-center align-items-center  main-d"> 
    <img class ="icon" src="${response.data.current.condition.icon}" alt="">
  
-      <p>Temperature: ${response.data.current.temp_c}°C</p>
-
-   <p>Wind Speed: ${response.data.current.wind_kph} km/h</p>
+      <p class ="temp">${response.data.current.temp_c}°C</p>
+   <div class ="more">
+      <div class= "feels-like">FeelsLike:${response.data.current.feelslike_c}°C</div>
+      <div class = "humidity">Humidity:${response.data.current.humidity}%</div>
+      <div class ='wind'>Wind:${response.data.current.wind_kph}Kph</div>
+    </div>
    
    </div>
 
@@ -34,11 +37,11 @@ form.addEventListener('submit' , (event) => {
    cityInput.value = "";
 
 })
-//   .catch((error) => {
-//    console.error(error);
-//    alert("no city found")
-//    cityInput.value = "";
-// });
+  .catch((error) => {
+   console.error(error);
+   alert("no city found")
+   cityInput.value = "";
+});
 
 })
 
